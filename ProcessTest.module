@@ -1,0 +1,58 @@
+<?php namespace ProcessWire;
+
+
+/**
+ * Testing #640 from the issue tracker
+ *
+ * @author Netcarver
+ * @copyright 2018
+ *
+ */
+class ProcessTest extends Process
+{
+    /**
+     *
+     */
+    public static function getModuleInfo()
+    {
+        return [
+            'title'     => __('Test'),
+            'summary'   => __('Testing Issue #640'),
+            'author'    => 'Netcarver',
+            'version'   => '0.1.0',
+            //'requires'  => 'ProcessWire>=3.0.0, PHP>=5.4.0',
+            'requires'  => [
+                'ProcessWire>=3.0.0',
+                'PHP>=5.4.0',
+            ],
+            'page'      => [
+                'name'  => 'test',
+                'title' => __('Test'),
+            ],
+            'autoload'  => 'template=admin',
+            'singular'  => true,
+        ];
+    }
+
+
+
+    /**
+     *
+     */
+    public function init()
+    {
+        parent::init();
+    }
+
+
+
+    /**
+     * Displays a table of invoices.
+     */
+    public function ___execute()
+    {
+        return "Test Page";
+    }
+
+
+}
